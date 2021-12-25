@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+canvas{
+    height: 600px;
+    width: 1024px;
+    border: 1px solid #000000;
+}
+.controls {
+    display: flex;
+    width: 1024px;
+    border: 1px solid #333;
+    margin-top: 10px;
+}
+.controls-group {
+    flex-grow: 1;
+    margin: 0;
+    display: inline-block;
+    border-right: 1px solid #333;
+    padding: 5px 10px 10px;
+}
+.controls-group:last-child {
+    border-right: none;
+}
+#add-data-points-randomly-count,
+#add-centroids-randomly-count,
+#run-steps-in-loop-milliseconds{
+    border: 1px none #666;
+    border-bottom-style: solid;
+    text-align: center;
+    width: 50px;
+}
+#fromFile{
+    text-align: center;
+}
