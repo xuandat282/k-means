@@ -29,7 +29,7 @@ canvas{
     border-right: none;
 }
 #add-data-points-randomly-count,
-#add-k-randomly-count,
+#add-centroids-randomly-count,
 #run-steps-in-loop-milliseconds{
     border: 1px none #666;
     border-bottom-style: solid;
