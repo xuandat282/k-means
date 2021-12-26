@@ -10,8 +10,6 @@
     align-items: center;
 }
 canvas{
-    height: 600px;
-    width: 1024px;
     border: 1px solid #000000;
 }
 .controls {
@@ -31,7 +29,7 @@ canvas{
     border-right: none;
 }
 #add-data-points-randomly-count,
-#add-centroids-randomly-count,
+#add-k-randomly-count,
 #run-steps-in-loop-milliseconds{
     border: 1px none #666;
     border-bottom-style: solid;
