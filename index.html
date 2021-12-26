@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container p-2">
         <h1 class="d-flex justify-content-center">K-Means algorithm visualization</h1>
         <canvas class="bg-primary"></canvas>
         <div class="controls">
@@ -20,17 +20,17 @@
                 <dt>Điểm dữ liệu</dt>
                 <dd><button type="button" class="btn btn-outline-primary" id="add-data-points-manually">Thêm thủ công</button></dd>
                 <dd><button type="button" class="btn btn-outline-secondary" id="add-data-points-randomly">Thêm ngẫu nhiên</button> <input id="add-data-points-randomly-count"
-                        value="100"> điểm</dd>
-                <dd><input style="width: 70%" class="form-control btn-outline-secondary" type="file" id="formFile">
+                        value="1000"> điểm</dd>
+                <dd><input style="width: 70%" class="form-control btn-outline-secondary" type="file" id="add-data-points-form-file">
                 </dd>
                 <dd><button type="button" class="btn btn-outline-danger" id="remove-all-data-points">Xoá tất cả</button></dd>
             </dl>
             <dl class="controls-group">
                 <dt>Cụm (K)</dt>
-                <dd><button  type="button" class="btn btn-outline-primary" id="add-centroids-manually">Thêm thủ công</button></dd>
-                <dd><button type="button" class="btn btn-outline-secondary" id="add-centroids-randomly">Thêm ngẫu nhiên</button> <input id="add-centroids-randomly-count"
+                <dd><button  type="button" class="btn btn-outline-primary" id="add-k-manually">Thêm thủ công</button></dd>
+                <dd><button type="button" class="btn btn-outline-secondary" id="add-k-randomly">Thêm ngẫu nhiên</button> <input id="add-k-randomly-count"
                         value="3">cụm</dd>
-                <dd><button type="button" class="btn btn-outline-danger" id="remove-all-centroids">Xoá tất cả</button></dd>
+                <dd><button type="button" class="btn btn-outline-danger" id="remove-all-k">Xoá tất cả</button></dd>
             </dl>
             <dl class="controls-group">
                 <dt>Run</dt>
