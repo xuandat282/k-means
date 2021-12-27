@@ -75,3 +75,10 @@ function removeAllCentroids() {
     centroids = [];
     drawAll();
 }
+
+// calculate distance between two points
+// eculidean distance
+function distance([x1,y1], [x2,y2]) {
+    return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+}
+distance(data_points[0], data_points[1]);
