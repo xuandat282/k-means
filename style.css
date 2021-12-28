@@ -15,14 +15,12 @@ canvas{
 .controls {
     display: flex;
     width: 1024px;
-    border: 1px solid #333;
     margin-top: 10px;
 }
 .controls-group {
     flex-grow: 1;
     margin: 0;
     display: inline-block;
-    border-right: 1px solid #333;
     padding: 5px 10px 10px;
 }
 .controls-group:last-child {

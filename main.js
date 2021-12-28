@@ -25,7 +25,7 @@ remove_all_data_points.addEventListener("click", removeAllDataPoints, false);
 add_centroids_randomly.addEventListener("click", () => randomCetroids(add_centroids_randomly_count.value), false);
 remove_all_centroids.addEventListener("click", removeAllCentroids, false);
 
-run_steps.addEventListener("click", runSteps, false);
+run_steps.addEventListener("click", runStepsLoop, false);
 
 // The number of data points to be added
 function randomDataPoints(count) {
@@ -130,11 +130,10 @@ function updateCentroids() {
     centroids = new_centroids;
     drawAll();
 }
-
-setInterval(runSteps, run_steps_milliseconds.value)
+function runStepsLoop() { setInterval(runSteps, run_steps_milliseconds.value) }
 
 // run steps
 function runSteps() {
-        assignCentroids();
-        updateCentroids();
+    assignCentroids();
+    updateCentroids();
 }
