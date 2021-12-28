@@ -13,7 +13,9 @@ var remove_all_centroids = document.getElementById("remove-all-centroids")
 var canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 let data_points = [],
-    centroids = [];
+    centroids = [],
+    data_points_assigned_to_centroids = [],
+    colors = ['#f2542d','#2a9d8f','#f4a261','#d62828','#457b9d','#06d6a0','#118ab2','#293241','#6a994e','#8338ec'];
 
 add_data_points_randomly.addEventListener("click", () => randomDataPoints(add_data_points_randomly_count.value), false);
 remove_all_data_points.addEventListener("click", removeAllDataPoints, false);
@@ -42,9 +44,11 @@ function drawAll() {
 }
 
 function drawDataPoints([x, y]) {
+    ctx.save();
     ctx.beginPath();
     ctx.arc(x, y, 3, 0, 2 * Math.PI);
     ctx.fill();
+    ctx.restore();
 }
 
 //remove all data points
@@ -64,11 +68,15 @@ function randomCetroids(count) {
     drawAll();
 }
 
-function drawCentroids([x, y]) {
+function drawCentroids([x, y], index) {
+    ctx.save();
     ctx.beginPath();
-    ctx.arc(x, y, 6, 0, 2 * Math.PI);
+    ctx.lineWidth = 2;
+    ctx.fillStyle = colors[index];
+    ctx.arc(x, y, 7, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.fill();
+    ctx.restore();
 }
 
 function removeAllCentroids() {
@@ -78,7 +86,11 @@ function removeAllCentroids() {
 
 // calculate distance between two points
 // eculidean distance
-function distance([x1,y1], [x2,y2]) {
-    return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+function distance(point1, point2) {
+    return Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
 }
-distance(data_points[0], data_points[1]);
+
+
+function assignCentroids() {
+    
+}
