@@ -30,7 +30,7 @@ canvas{
 }
 #add-data-points-randomly-count,
 #add-centroids-randomly-count,
-#run-steps-in-loop-milliseconds{
+#run-steps-milliseconds{
     border: 1px none #666;
     border-bottom-style: solid;
     text-align: center;
