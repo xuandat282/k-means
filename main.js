@@ -16,7 +16,7 @@ ctx = canvas.getContext("2d");
 let data_points = [],
     centroids = [],
     data_points_assigned_to_centroids = [],
-    colors = ['#f2542d','#2a9d8f','#f4a261','#d62828','#457b9d','#06d6a0','#118ab2','#293241','#6a994e','#8338ec'];
+    colors = ['#f2542d','#2a9d8f','#f4a261','#007f5f','#457b9d','#06d6a0','#118ab2','#293241','#6a994e','#8338ec'];
 
 add_data_points_randomly.addEventListener("click", () => randomDataPoints(add_data_points_randomly_count.value), false);
 remove_all_data_points.addEventListener("click", removeAllDataPoints, false);
