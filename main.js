@@ -9,6 +9,7 @@ var add_centroids_randomly = document.getElementById("add-centroids-randomly")
 var add_centroids_randomly_count = document.getElementById("add-centroids-randomly-count")
 var remove_all_centroids = document.getElementById("remove-all-centroids")
 
+var run_steps = document.getElementById("run-steps")
 
 var canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
@@ -22,6 +23,8 @@ remove_all_data_points.addEventListener("click", removeAllDataPoints, false);
 
 add_centroids_randomly.addEventListener("click", () => randomCetroids(add_centroids_randomly_count.value), false);
 remove_all_centroids.addEventListener("click", removeAllCentroids, false);
+
+run_steps.addEventListener("click", assignCentroids, false);
 
 // The number of data points to be added
 function randomDataPoints(count) {
@@ -43,9 +46,10 @@ function drawAll() {
     centroids.map(drawCentroids);
 }
 
-function drawDataPoints([x, y]) {
+function drawDataPoints([x, y], index) {
     ctx.save();
     ctx.beginPath();
+    ctx.fillStyle = colors[data_points_assigned_to_centroids[index]];
     ctx.arc(x, y, 3, 0, 2 * Math.PI);
     ctx.fill();
     ctx.restore();
@@ -81,6 +85,7 @@ function drawCentroids([x, y], index) {
 
 function removeAllCentroids() {
     centroids = [];
+    data_points_assigned_to_centroids = [];
     drawAll();
 }
 
@@ -90,7 +95,21 @@ function distance(point1, point2) {
     return Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
 }
 
-
 function assignCentroids() {
-    
+    console.log("sss")
+    data_points_assigned_to_centroids = [];
+    for (let i = 0; i < data_points.length; i++) {
+        let min_distance = Infinity;
+        let min_distance_index = 0;
+        for (let j = 0; j < centroids.length; j++) {
+            let distance_to_centroid = distance(data_points[i], centroids[j]);
+            if (distance_to_centroid < min_distance) {
+                min_distance = distance_to_centroid;
+                min_distance_index = j;
+            }
+        }
+        data_points_assigned_to_centroids.push(min_distance_index);
+    }
+    drawAll();
 }
+
