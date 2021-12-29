@@ -1,10 +1,7 @@
-var add_data_points_manually = document.getElementById("add-data-points-manually")
 var add_data_points_randomly = document.getElementById("add-data-points-randomly")
 var add_data_points_randomly_count = document.getElementById("add-data-points-randomly-count")
-var add_data_points_from_file = document.getElementById("add-data-points-from-file")
 var remove_all_data_points = document.getElementById("remove-all-data-points")
 
-var add_centroids_manually = document.getElementById("add-centroids-manually")
 var add_centroids_randomly = document.getElementById("add-centroids-randomly")
 var add_centroids_randomly_count = document.getElementById("add-centroids-randomly-count")
 var remove_all_centroids = document.getElementById("remove-all-centroids")
@@ -94,6 +91,7 @@ function removeAllCentroids() {
 function distance(point1, point2) {
     return Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
 }
+
 // asign data points to centroids
 function assignCentroids() {
     data_points_assigned_to_centroids = [];
@@ -130,10 +128,21 @@ function updateCentroids() {
     centroids = new_centroids;
     drawAll();
 }
-function runStepsLoop() { setInterval(runSteps, run_steps_milliseconds.value) }
 
 // run steps
-function runSteps() {
+let run_step;
+function runStepsLoop() {
+    if (!run_step) {
+        run_step = setInterval(runStep, run_steps_milliseconds.value);
+    }
+}
+function runStep() {
     assignCentroids();
     updateCentroids();
+    console.table(centroids);
 }
+
+
+
+
+
