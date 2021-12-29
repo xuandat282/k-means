@@ -129,6 +129,7 @@ function updateCentroids() {
     }
     centroids = new_centroids;
     drawAll();
+    step_status.innerHTML = "Cập nhật vị trí tâm cụm";
 }
 
 // run steps
