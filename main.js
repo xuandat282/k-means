@@ -9,6 +9,8 @@ var remove_all_centroids = document.getElementById("remove-all-centroids")
 var run_steps = document.getElementById("run-steps")
 var run_steps_milliseconds = document.getElementById("run-steps-milliseconds")
 
+var step_status = document.getElementById("status");
+
 var canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 let data_points = [],
@@ -137,9 +139,14 @@ function runStepsLoop() {
     }
 }
 function runStep() {
+    let pre_centroids = centroids;
     assignCentroids();
     updateCentroids();
-    console.table(centroids);
+    if (JSON.stringify(pre_centroids) === JSON.stringify(centroids)) {
+        clearInterval(run_step);
+        run_step = null;
+        step_status.innerHTML = "Hoàn thành";
+    }
 }
 
 
