@@ -30,8 +30,8 @@ run_steps.addEventListener("click", runStepsLoop, false);
 function randomDataPoints(count) {
     for (let i = 0; i < count; i++) {
         let newPoint = [
-            Math.floor(Math.random() * canvas.width),
-            Math.floor(Math.random() * canvas.height)
+            Math.floor(Math.random() * canvas.width), // x
+            Math.floor(Math.random() * canvas.height) // y
         ];
         data_points.push(newPoint);
     }
@@ -50,7 +50,7 @@ function drawDataPoints([x, y], index) {
     ctx.save();
     ctx.beginPath();
     ctx.fillStyle = colors[data_points_assigned_to_centroids[index]];
-    ctx.arc(x, y, 3, 0, 2 * Math.PI);
+    ctx.arc(x, y, 4, 0, 2 * Math.PI);
     ctx.fill();
     ctx.restore();
     step_status.innerHTML = "1. Thêm số lượng cụm";
@@ -78,7 +78,7 @@ function drawCentroids([x, y], index) {
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.fillStyle = colors[index];
-    ctx.arc(x, y, 7, 0, 2 * Math.PI);
+    ctx.arc(x, y, 9, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.fill();
     ctx.restore();
@@ -150,8 +150,3 @@ function runStep() {
         step_status.innerHTML = "3. Hoàn thành";
     }
 }
-
-
-
-
-
