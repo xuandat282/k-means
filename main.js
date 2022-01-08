@@ -53,13 +53,14 @@ function drawDataPoints([x, y], index) {
     ctx.arc(x, y, 4, 0, 2 * Math.PI);
     ctx.fill();
     ctx.restore();
-    step_status.innerHTML = "1. Thêm số lượng cụm";
+    step_status.innerHTML = "2. Thêm số lượng cụm";
 }
 
 //remove all data points
 function removeAllDataPoints() {
     data_points = [];
     drawAll();
+    step_status.innerHTML = "1. Thêm điểm dữ liệu";
 }
 // add random centroid
 function randomCetroids(count) {
@@ -130,7 +131,7 @@ function updateCentroids() {
     }
     centroids = new_centroids;
     drawAll();
-    step_status.innerHTML = "2. Cập nhật vị trí tâm cụm";
+    step_status.innerHTML = "3. Cập nhật vị trí tâm cụm";
 }
 
 // run steps
@@ -147,6 +148,6 @@ function runStep() {
     if (JSON.stringify(pre_centroids) === JSON.stringify(centroids)) {
         clearInterval(run_step);
         run_step = null;
-        step_status.innerHTML = "3. Hoàn thành";
+        step_status.innerHTML = "4. Hoàn thành";
     }
 }
